@@ -4,6 +4,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
+app.set("view engine", "pug"); // need to use this exact key-value pair to use pug
+app.set("views", "views"); // will also default to this
 
 const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
