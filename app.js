@@ -2,9 +2,12 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const expressHbs = require("express-handlebars");
 
 const app = express();
-app.set("view engine", "pug"); // need to use this exact key-value pair to use pug
+
+app.engine("hbs", expressHbs()); // to initialize the engine need to look at docs
+app.set("view engine", "hbs"); // need to use this exact key-value pair to use pug
 app.set("views", "views"); // will also default to this
 
 const adminData = require("./routes/admin");
@@ -17,7 +20,7 @@ app.use("/admin", adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  res.status(404).render("404", { pageTitle: "Page Not Found!!" });
+  res.status(404).render("404", { pageTitle: "404 Page Not Found" });
 });
 
 app.listen(3200);

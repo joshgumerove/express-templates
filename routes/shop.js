@@ -9,11 +9,13 @@ const router = express.Router();
 
 router.get("/", (req, res, next) => {
   const products = adminData.products;
+  const hasProducts = products.length > 0;
   res.render("shop", {
     prods: products,
     docTitle: "Shop",
     path: "/",
     pageTitle: "Shop",
+    hasProducts,
   });
   // res.sendFile(path.join(rootDir, "views", "shop.html"));
 });
