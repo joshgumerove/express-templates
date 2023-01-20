@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
     pageTitle: "Shop",
     hasProducts,
     activeShop: true,
-    productCSS: true
+    productCSS: true,
   });
   // res.sendFile(path.join(rootDir, "views", "shop.html"));
 });
